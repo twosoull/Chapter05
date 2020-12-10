@@ -1,4 +1,4 @@
-package com.javaex.ex03;
+package com.javaex.ex04;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -31,6 +31,16 @@ public class PhoneApp {
 		}
 
 		bfPhDb.close();
-		
+		Person p02 = new Person("이영훈", "010-5555-7777", "카카오프렌즈");
+		plist.add(p02);
+
+		Writer pWriter = new FileWriter("C:\\javaStudy\\NewPhoneDB.txt");
+		BufferedWriter bWPerson = new BufferedWriter(pWriter);
+	
+		for (int i = 0; i < plist.size(); i++) {
+			bWPerson.write(plist.get(i).getName() + "," + plist.get(i).getHp() + "," + plist.get(i).getCompany());
+			bWPerson.newLine();
+		}
+		bWPerson.close();
 	}
 }
